@@ -48,25 +48,29 @@
 
 .app__wrapper_img img {
     width: 80%;
+    border-radius: 20px;
 }
 
 .custom__button {
     background-color: var(--color-beige);
     color: var(--color-black);
-    /*font-family: var(--font-base);*/
     font-weight: 700;
     letter-spacing: 0.04em;
     line-height: 28px;
     font-size: 16px;
     padding: 0.5rem 1.5rem;
-    border-radius: 1px;
+    border-radius: 10px;
     border: none;
     outline: none;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.custom__button:hover {
+    background-color: var(--color-darkyellow);
 }
 
 .p__cormorant {
-    /*font-family: var(--font-base);*/
     color: var(--color-white);
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -77,7 +81,6 @@
 }
 
 .p__opensans {
-    /*font-family: var(--font-base);*/
     color: var(--color-white);
     font-weight: 400;
     letter-spacing: 0.04em;
@@ -87,16 +90,11 @@
 }
 
 .headtext__cormorant {
-    /*font-family: var(--font-base);*/
     color: var(--color-darkyellow);
     font-size: 64px;
     line-height: 83.2px;
     letter-spacing: 0.04em;
     text-transform: capitalize;
-}
-
-.spoon__img {
-    width: 45px;
 }
 
 @media screen and (min-width: 2000px) {
@@ -137,11 +135,19 @@
     .app__wrapper_img img {
         width: 100%;
     }
+
+    .app__wrapper_img-background {
+        height: 400px;
+    }
 }
 
 @media screen and (max-width: 850px) {
     .section__padding {
         padding: 4rem;
+    }
+
+    .app__wrapper_img-background {
+        height: 300px;
     }
 }
 
@@ -157,6 +163,10 @@
     .p__opensans {
         font-size: 14px;
     }
+
+    .app__wrapper_img-background {
+        height: 250px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -171,5 +181,9 @@
     .headtext__cormorant {
         font-size: 45px;
         line-height: 70px;
+    }
+
+    .app__wrapper_img-background {
+        height: 200px;
     }
 }
