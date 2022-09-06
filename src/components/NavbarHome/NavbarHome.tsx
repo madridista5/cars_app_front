@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { GiHamburgerMenu} from 'react-icons/gi';
-import {MdOutlineRestaurantMenu} from 'react-icons/md';
+import {AiFillCloseCircle} from 'react-icons/ai';
 import { Link } from "react-router-dom";
 
 import './NavbarHome.css';
@@ -28,7 +28,7 @@ export const NavbarHome = () => {
 
                 {toggleMenu && (
                     <div className="app__navbar-smallscreen_overlay flex__center">
-                        <MdOutlineRestaurantMenu fontSize={27} className="overlay__close"
+                        <AiFillCloseCircle fontSize={27} className="overlay__close"
                                                  onClick={() => setToggleMenu(false)}/>
                         <ul className="app__navbar-smallscreen-links">
                             <li className="p__opensans"><a href="#home">Home</a></li>
