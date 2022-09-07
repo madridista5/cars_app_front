@@ -11,8 +11,8 @@ export const Home = () => {
             <NavbarHome/>
             <Header/>
             <Video/>
-            <Awards/>
             <Gallery/>
+            <Awards/>
         </>
     );
 };

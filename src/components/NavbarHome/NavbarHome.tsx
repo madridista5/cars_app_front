@@ -15,8 +15,8 @@ export const NavbarHome = () => {
             </div>
             <ul className="app__navbar-links">
                 <li className="p__opensans"><a href="#home">Home</a></li>
-                <li className="p__opensans"><a href="#awards">Nagrody</a></li>
                 <li className="p__opensans"><a href="#gallery">Galeria</a></li>
+                <li className="p__opensans"><a href="#awards">Nagrody</a></li>
             </ul>
             <div className="app__navbar-login">
                 <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
