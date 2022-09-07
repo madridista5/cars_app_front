@@ -3,8 +3,10 @@
 :root {
   --font-base: 'Roboto', sans-serif;
 
-  --color-darkyellow: #dbb258;
+  /*--color-darkyellow: #dbb258;*/
+  --color-red: #f9460d;
   --color-black: #000000;
+  --color-blue: #1e4ba2;
   --color-gray: #545454;
   --color-beige: #d4c9b7;
   --color-grey: #AAAAAA;
