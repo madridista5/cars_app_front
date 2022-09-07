@@ -14,7 +14,7 @@
     width: 80%;
     height: 300px;
     border-radius: 20px;
-    background-image: url("../../assets/car.jpg");
+    background-image: url("../../assets/car1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -30,11 +30,11 @@
 
 @keyframes photos {
     0% {
-        background-image: url("../../assets/car.jpg");
+        background-image: url("../../assets/car1.jpg");
     }
 
     15% {
-        background-image: url("../../assets/car.jpg");
+        background-image: url("../../assets/car1.jpg");
     }
 
     20% {
@@ -70,6 +70,6 @@
     }
 
     100% {
-        background-image: url("../../assets/car.jpg");
+        background-image: url("../../assets/car1.jpg");
     }
 }

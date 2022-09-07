@@ -63,7 +63,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.4s;
     animation: shakes 3s linear infinite;
 }
 

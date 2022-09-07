@@ -16,3 +16,11 @@ export const awards = [
         subtitle: 'W 2019 roku otrzymaliśmy wyróżnienie portalu "AutoMoto.pl" przyznane na podstawie recenzji wystawionych przez użytkowników naszej aplikacji.',
     },
 ];
+
+export const galleryImages = [
+    '../../assets/car.jpg',
+    '../../assets/car2.jpg',
+    '../../assets/car3.jpg',
+    '../../assets/car4.jpg',
+    '../../assets/car5.jpg',
+];
