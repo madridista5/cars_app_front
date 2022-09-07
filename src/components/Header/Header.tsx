@@ -1,7 +1,7 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import './Header.css';
-import {Link} from "react-router-dom";
 
 export const Header = () => {
 
@@ -13,7 +13,9 @@ export const Header = () => {
                 <Link to="/cars"><button type="button" className="custom__button">Otwórz aplikację</button></Link>
             </div>
             <div className="app__wrapper_img">
-                <div className="app__wrapper_img-background"/>
+                <div className="app__wrapper_img-background">
+                    <div className="app__wrapper_img-background_overlay"/>
+                </div>
             </div>
         </div>
     );
