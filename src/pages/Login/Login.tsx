@@ -1,30 +1,32 @@
-import React, {SyntheticEvent, useState} from "react";
+import React, {SyntheticEvent} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Link} from "react-router-dom";
+import {useHandleEmailAndPass} from "../../hooks/useHandleEmailAndPass";
 
 import './Login.css';
 
 export const Login = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-
-    const [isEmailCorrect, setIsEmailCorrect] = useState<boolean>(true);
-    const [isPasswordCorrect, setIsPasswordCorrect] = useState<boolean>(true);
+    const [handleEmailAndPass, setState] = useHandleEmailAndPass({
+        email: '',
+        password: '',
+        isEmailCorrect: true,
+        isPasswordCorrect: true,
+    });
 
     const handleForm = (e: SyntheticEvent) => {
         e.preventDefault();
-        if (!email.split('').includes('@')) {
-            setIsEmailCorrect(false);
+        if (!(handleEmailAndPass.email.split('').includes('@'))) {
+            setState(undefined, undefined, false);
             return;
         } else {
-            setIsEmailCorrect(true);
+            setState(undefined, undefined, true);
         }
 
-        if (password.length < 8) {
-            setIsPasswordCorrect(false);
+        if (handleEmailAndPass.password.length < 8) {
+            setState(undefined, undefined, undefined, false);
             return;
         } else {
-            setIsPasswordCorrect(true);
+            setState(undefined, undefined, undefined, true);
         }
     }
 
@@ -37,15 +39,15 @@ export const Login = () => {
                     <h1 className="headtext__cormorant" style={{marginBottom: '3rem'}}>Logowanie</h1>
                     <div className="app__wrapper-content">
                         <form className="login__wrapper" onSubmit={handleForm}>
-                            {!isEmailCorrect &&
+                            {!handleEmailAndPass.isEmailCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Email musi zawierać znak @</p>}
-                            <input type="text" placeholder="email" onChange={e => setEmail(e.target.value)}
-                                   value={email}/>
-                            {!isPasswordCorrect &&
+                            <input type="text" placeholder="email" onChange={e => setState(e.target.value)}
+                                   value={handleEmailAndPass.email}/>
+                            {!handleEmailAndPass.isPasswordCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Hasło musi zawierać conajmniej 8
                                     znaków</p>}
-                            <input type="password" placeholder="hasło" onChange={e => setPassword(e.target.value)}
-                                   value={password}/>
+                            <input type="password" placeholder="hasło" onChange={e => setState(undefined, e.target.value)}
+                                   value={handleEmailAndPass.password}/>
                             <button type="submit" className="custom__button">Zaloguj</button>
                             <p className="p__opensans register-btn"><Link to="/register">Rejestracja</Link></p>
                         </form>
