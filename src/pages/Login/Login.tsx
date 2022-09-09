@@ -1,7 +1,11 @@
 import React from "react";
+import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 
 export const Login = () => {
     return (
-        <div>Login</div>
+        <>
+            <NavbarRoutes/>
+            <div>Login</div>
+        </>
     );
 };
