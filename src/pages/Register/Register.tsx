@@ -1,18 +1,20 @@
 import React, {SyntheticEvent, useState} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {geocode} from "../../utils/geocoding";
+import {axiosData} from "../../utils/axiosData";
 
 export const Register = () => {
     const [registerData, setRegisterData] = useState({
         email: '',
-        password: '',
+        pwd: '',
         phoneNum: 0,
         address: '',
         isEmailCorrect: true,
         isPasswordCorrect: true,
         isPhoneNumCorrect: true,
     });
+    const navigate = useNavigate();
 
     const handleForm = (e: SyntheticEvent) => {
         e.preventDefault();
@@ -29,7 +31,7 @@ export const Register = () => {
             });
         }
 
-        if (registerData.password.length < 8) {
+        if (registerData.pwd.length < 8) {
             setRegisterData({
                 ...registerData,
                 isPasswordCorrect: false,
@@ -56,7 +58,17 @@ export const Register = () => {
 
         (async () => {
             const {lat, lon} = await geocode(registerData.address);
-
+            const {data} = await axiosData.post('/auth/register', {
+                email: registerData.email,
+                pwd: registerData.pwd,
+                phoneNum: registerData.phoneNum,
+                address: registerData.address,
+                lat,
+                lon,
+            });
+            navigate('/info', {
+                state: {data},
+            });
         })();
     }
 
@@ -88,9 +100,9 @@ export const Register = () => {
                                 placeholder="hasło"
                                 onChange={e => setRegisterData({
                                     ...registerData,
-                                    password: e.target.value,
+                                    pwd: e.target.value,
                                 })}
-                                value={registerData.password}
+                                value={registerData.pwd}
                             />
                             <p className="p__opensans">Numer telefonu:</p>
                             {!registerData.isPhoneNumCorrect &&
