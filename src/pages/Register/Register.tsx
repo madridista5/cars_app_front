@@ -1,31 +1,63 @@
-import React, {SyntheticEvent} from "react";
+import React, {SyntheticEvent, useState} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Link} from "react-router-dom";
-import {useHandleEmailAndPass} from "../../hooks/useHandleEmailAndPass";
+import {geocode} from "../../utils/geocoding";
 
 export const Register = () => {
-    const [handleEmailAndPass, setState] = useHandleEmailAndPass({
+    const [registerData, setRegisterData] = useState({
         email: '',
         password: '',
+        phoneNum: 0,
+        address: '',
         isEmailCorrect: true,
         isPasswordCorrect: true,
+        isPhoneNumCorrect: true,
     });
 
     const handleForm = (e: SyntheticEvent) => {
         e.preventDefault();
-        if (!(handleEmailAndPass.email.split('').includes('@'))) {
-            setState(undefined, undefined, false);
+        if (!(registerData.email.split('').includes('@'))) {
+            setRegisterData({
+                ...registerData,
+                isEmailCorrect: false,
+            });
             return;
         } else {
-            setState(undefined, undefined, true);
+            setRegisterData({
+                ...registerData,
+                isEmailCorrect: true,
+            });
         }
 
-        if (handleEmailAndPass.password.length < 8) {
-            setState(undefined, undefined, undefined, false);
+        if (registerData.password.length < 8) {
+            setRegisterData({
+                ...registerData,
+                isPasswordCorrect: false,
+            });
             return;
         } else {
-            setState(undefined, undefined, undefined, true);
+            setRegisterData({
+                ...registerData,
+                isPasswordCorrect: true,
+            });
         }
+
+        if(registerData.phoneNum > 999999999) {
+            setRegisterData({
+                ...registerData,
+                isPhoneNumCorrect: false,
+            });
+        } else {
+            setRegisterData({
+                ...registerData,
+                isPhoneNumCorrect: true,
+            });
+        }
+
+        (async () => {
+            const {lat, lon} = await geocode(registerData.address);
+
+        })();
     }
 
     return (
@@ -37,31 +69,51 @@ export const Register = () => {
                     <h1 className="headtext__cormorant" style={{marginBottom: '3rem'}}>Rejestracja</h1>
                     <div className="app__wrapper-content">
                         <form className="login__wrapper" onSubmit={handleForm}>
-                            {!handleEmailAndPass.isEmailCorrect &&
+                            {!registerData.isEmailCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Email musi zawierać znak @</p>}
                             <input
                                 type="text"
                                 placeholder="email"
-                                onChange={e => setState(e.target.value)}
-                                value={handleEmailAndPass.email}
+                                onChange={e => setRegisterData({
+                                    ...registerData,
+                                    email: e.target.value,
+                                })}
+                                value={registerData.email}
                             />
-                            {!handleEmailAndPass.isPasswordCorrect &&
+                            {!registerData.isPasswordCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Hasło musi zawierać conajmniej 8
                                     znaków</p>}
                             <input
                                 type="password"
                                 placeholder="hasło"
-                                onChange={e => setState(undefined, e.target.value)}
-                                value={handleEmailAndPass.password}
+                                onChange={e => setRegisterData({
+                                    ...registerData,
+                                    password: e.target.value,
+                                })}
+                                value={registerData.password}
                             />
+                            <p className="p__opensans">Numer telefonu:</p>
+                            {!registerData.isPhoneNumCorrect &&
+                                <p className="p__opensans" style={{color: 'red'}}>Numer telefonu może mieć maksymalnie 9 cyfr</p>}
                             <input
                                 type="number"
                                 placeholder="numer telefonu"
+                                onChange={e => setRegisterData({
+                                    ...registerData,
+                                    phoneNum: Number(e.target.value),
+                                })}
+                                value={registerData.phoneNum}
                             />
-                            <p className="p__opensans">Wpisz adres w następujący sposób: NazwaMiasta, NazwaUlicy numer</p>
+                            <p className="p__opensans">Wpisz adres w następujący sposób: NazwaMiasta, NazwaUlicy
+                                numer</p>
                             <input
                                 type="text"
                                 placeholder="np. Kłodzko, Noworudzka 1"
+                                onChange={e => setRegisterData({
+                                    ...registerData,
+                                    address: e.target.value,
+                                })}
+                                value={registerData.address}
                             />
                             <button type="submit" className="custom__button">Zarejestruj</button>
                             <p className="p__opensans register-btn"><Link to="/login">Logowanie</Link></p>
