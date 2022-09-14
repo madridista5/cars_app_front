@@ -39,14 +39,31 @@ export const Register = () => {
                         <form className="login__wrapper" onSubmit={handleForm}>
                             {!handleEmailAndPass.isEmailCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Email musi zawierać znak @</p>}
-                            <input type="text" placeholder="email" onChange={e => setState(e.target.value)}
-                                   value={handleEmailAndPass.email}/>
+                            <input
+                                type="text"
+                                placeholder="email"
+                                onChange={e => setState(e.target.value)}
+                                value={handleEmailAndPass.email}
+                            />
                             {!handleEmailAndPass.isPasswordCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Hasło musi zawierać conajmniej 8
                                     znaków</p>}
-                            <input type="password" placeholder="hasło" onChange={e => setState(undefined, e.target.value)}
-                                   value={handleEmailAndPass.password}/>
-                            <button type="submit" className="custom__button">Zaloguj</button>
+                            <input
+                                type="password"
+                                placeholder="hasło"
+                                onChange={e => setState(undefined, e.target.value)}
+                                value={handleEmailAndPass.password}
+                            />
+                            <input
+                                type="number"
+                                placeholder="numer telefonu"
+                            />
+                            <p className="p__opensans">Wpisz adres w następujący sposób: NazwaMiasta, NazwaUlicy numer</p>
+                            <input
+                                type="text"
+                                placeholder="np. Kłodzko, Noworudzka 1"
+                            />
+                            <button type="submit" className="custom__button">Zarejestruj</button>
                             <p className="p__opensans register-btn"><Link to="/login">Logowanie</Link></p>
                         </form>
                     </div>
