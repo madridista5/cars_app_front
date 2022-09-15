@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "types": [
-        "../cars_app_back/src/types"
+        "../cars_app_back/types"
       ]
     }
   }

@@ -1,7 +1,9 @@
 import React, {SyntheticEvent} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useHandleEmailAndPass} from "../../hooks/useHandleEmailAndPass";
+import {axiosData} from "../../utils/axiosData";
+import {UserLoginResponse} from "types";
 
 import './Login.css';
 
@@ -12,6 +14,7 @@ export const Login = () => {
         isEmailCorrect: true,
         isPasswordCorrect: true,
     });
+    const navigate = useNavigate();
 
     const handleForm = (e: SyntheticEvent) => {
         e.preventDefault();
@@ -28,6 +31,18 @@ export const Login = () => {
         } else {
             setState(undefined, undefined, undefined, true);
         }
+
+        (async () => {
+            const res = await axiosData.post('/auth/login', {
+                email: handleEmailAndPass.email,
+                pwd: handleEmailAndPass.password,
+            });
+            const data: UserLoginResponse = res.data;
+
+            navigate('/info', {
+                state: {data: data.info},
+            });
+        })();
     }
 
     return (
@@ -41,13 +56,21 @@ export const Login = () => {
                         <form className="login__wrapper" onSubmit={handleForm}>
                             {!handleEmailAndPass.isEmailCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Email musi zawierać znak @</p>}
-                            <input type="text" placeholder="email" onChange={e => setState(e.target.value)}
-                                   value={handleEmailAndPass.email}/>
+                            <input
+                                type="text"
+                                placeholder="email"
+                                onChange={e => setState(e.target.value)}
+                                value={handleEmailAndPass.email}
+                            />
                             {!handleEmailAndPass.isPasswordCorrect &&
                                 <p className="p__opensans" style={{color: 'red'}}>Hasło musi zawierać conajmniej 8
                                     znaków</p>}
-                            <input type="password" placeholder="hasło" onChange={e => setState(undefined, e.target.value)}
-                                   value={handleEmailAndPass.password}/>
+                            <input
+                                type="password"
+                                placeholder="hasło"
+                                onChange={e => setState(undefined, e.target.value)}
+                                value={handleEmailAndPass.password}
+                            />
                             <button type="submit" className="custom__button">Zaloguj</button>
                             <p className="p__opensans register-btn"><Link to="/register">Rejestracja</Link></p>
                         </form>
