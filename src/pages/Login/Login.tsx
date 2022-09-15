@@ -38,6 +38,7 @@ export const Login = () => {
                 pwd: handleEmailAndPass.password,
             });
             const data: UserLoginResponse = res.data;
+            localStorage.setItem('user', JSON.stringify(data));
 
             navigate('/info', {
                 state: {data: data.info},
