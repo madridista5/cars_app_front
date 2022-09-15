@@ -1,12 +1,15 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { GiHamburgerMenu} from 'react-icons/gi';
 import {AiFillCloseCircle} from 'react-icons/ai';
 import { Link } from "react-router-dom";
+import {UserContext} from "../../context/user.context";
 
 import './NavbarHome.css';
 
 export const NavbarHome = () => {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+    const {id} = useContext(UserContext);
+    const userData = useContext(UserContext);
 
     return (
         <div className="app__navbar">
@@ -19,7 +22,10 @@ export const NavbarHome = () => {
                 <li className="p__opensans"><a href="#awards">Nagrody</a></li>
             </ul>
             <div className="app__navbar-login">
-                <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
+                {id !== ''
+                    ? <Link to="/signOut" className="p__opensans" onClick={() => userData.id = ''}>Wyloguj</Link>
+                    : <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
+                }
                 <div/>
                 <Link to="/watch/userId" className="p__opensans">Obserwowane</Link>
             </div>
@@ -34,9 +40,12 @@ export const NavbarHome = () => {
                             <li className="p__opensans"><a href="#home">Home</a></li>
                             <li className="p__opensans"><a href="#awards">Nagrody</a></li>
                             <li className="p__opensans"><a href="#gallery">Galeria</a></li>
-                            <li className="p__opensans"><Link to="/login">Logowanie /
+
+                            {id !== ''
+                                ? <li className="p__opensans"><Link to="/signOut" onClick={() => userData.id = ''}>Wyloguj</Link></li>
+                                : <li className="p__opensans"><Link to="/login">Logowanie /
                                 Rejestracja</Link></li>
-                            {/*<li className="p__opensans"><Link to="/signOut">Wyloguj</Link></li>*/}
+                            }
                             <li className="p__opensans"><Link to="/watch/userId">Obserwowane</Link></li>
                         </ul>
                     </div>
