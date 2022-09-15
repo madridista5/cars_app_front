@@ -1,9 +1,10 @@
-import React, {SyntheticEvent} from "react";
+import React, {SyntheticEvent, useContext} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Link, useNavigate} from "react-router-dom";
 import {useHandleEmailAndPass} from "../../hooks/useHandleEmailAndPass";
 import {axiosData} from "../../utils/axiosData";
 import {UserLoginResponse} from "types";
+import {UserContext} from "../../context/user.context";
 
 import './Login.css';
 
@@ -14,6 +15,7 @@ export const Login = () => {
         isEmailCorrect: true,
         isPasswordCorrect: true,
     });
+    const userData = useContext(UserContext);
     const navigate = useNavigate();
 
     const handleForm = (e: SyntheticEvent) => {
@@ -39,6 +41,13 @@ export const Login = () => {
             });
             const data: UserLoginResponse = res.data;
             localStorage.setItem('user', JSON.stringify(data));
+            userData.id = data.id;
+            userData.email = data.email;
+            userData.role = data.role;
+            userData.phoneNum = data.phoneNum;
+            userData.address = data.address;
+            userData.lat = data.lat;
+            userData.lon = data.lon;
 
             navigate('/info', {
                 state: {data: data.info},

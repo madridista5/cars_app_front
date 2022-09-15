@@ -8,7 +8,7 @@ import './NavbarRoutes.css';
 
 export const NavbarRoutes = () => {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-    const {id} = useContext(UserContext);
+    const userData = useContext(UserContext);
 
     return (
         <div className="app__navbar">
@@ -19,8 +19,8 @@ export const NavbarRoutes = () => {
                 <li className="p__opensans"><Link to="/">Home</Link></li>
             </ul>
             <div className="app__navbar-login">
-                {id
-                    ? <Link to="/signOut" className="p__opensans">Wyloguj</Link>
+                {userData.id !== ''
+                    ? <Link to="/signOut" className="p__opensans" onClick={() => userData.id = ''}>Wyloguj</Link>
                     : <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
                 }
                 <div/>
@@ -35,11 +35,8 @@ export const NavbarRoutes = () => {
                                            onClick={() => setToggleMenu(false)}/>
                         <ul className="app__navbar-smallscreen-links">
                             <li className="p__opensans"><Link to="/">Home</Link></li>
-                            {/*<li className="p__opensans"><Link to="/login">Logowanie /*/}
-                            {/*    Rejestracja</Link></li>*/}
-
-                            {id
-                                ? <li className="p__opensans"><Link to="/signOut">Wyloguj</Link></li>
+                            { userData.id !== ''
+                                ? <li className="p__opensans"><Link to="/signOut" onClick={() => userData.id = ''}>Wyloguj</Link></li>
                                 : <li className="p__opensans"><Link to="/login">Logowanie /
                                     Rejestracja</Link></li>
                             }

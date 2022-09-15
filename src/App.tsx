@@ -9,6 +9,7 @@ import {Watch} from "./pages/Watch/Watch";
 import {Info} from "./pages/Info/Info";
 import {UserLoginResponse} from 'types';
 import {UserContext} from "./context/user.context";
+import {SignOut} from "./pages/SignOut/SignOut";
 
 import './App.css';
 
@@ -44,6 +45,7 @@ export const App = () => {
                     <Route path="/register" element={<Register/>}/>
                     <Route path="/watch/:userId" element={<Watch/>}/>
                     <Route path="/info" element={<Info/>}/>
+                    <Route path="/signOut" element={<SignOut/>}/>
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>
