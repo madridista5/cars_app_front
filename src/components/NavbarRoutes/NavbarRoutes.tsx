@@ -13,7 +13,7 @@ export const NavbarRoutes = () => {
     return (
         <div className="app__navbar">
             <div className="app__navbar-title">
-                <p className="p__opensans">Cars App</p>
+                <p className="p__opensans"><Link to="/cars">Cars App</Link></p>
             </div>
             <ul className="app__navbar-links">
                 <li className="p__opensans"><Link to="/">Home</Link></li>
