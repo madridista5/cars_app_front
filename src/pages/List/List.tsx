@@ -7,7 +7,15 @@ export const List = () => {
     return (
         <>
             <NavbarRoutes/>
-            <SearchForm/>
+
+            <div className="app__bg app__wrapper section__padding">
+                <SearchForm/>
+
+                <div className="app__wrapper_info">
+                    <p className="p__cormorant">Lista samochodów</p>
+                </div>
+            </div>
+
             <Footer/>
         </>
     );
