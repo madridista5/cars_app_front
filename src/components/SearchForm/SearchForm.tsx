@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {axiosData} from "../../utils/axiosData";
 import {CarListResponse} from "types";
+import {CarsListContext} from "../../context/carsList.context";
 
 import './SearchForm.css';
 
@@ -17,7 +18,7 @@ export const SearchForm = () => {
         distanceStart: 0,
         distanceEnd: 999999,
     });
-    const [carsList, setCarsList] = useState<CarListResponse>([]);
+    const {carsList, setCarsList} = useContext(CarsListContext);
 
     useEffect(() => {
         (async () => {

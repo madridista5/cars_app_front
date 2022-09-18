@@ -7,11 +7,12 @@ import {Login} from "./pages/Login/Login";
 import {Register} from "./pages/Register/Register";
 import {Watch} from "./pages/Watch/Watch";
 import {Info} from "./pages/Info/Info";
-import {UserLoginResponse} from 'types';
+import {CarListResponse, UserLoginResponse} from 'types';
 import {UserContext} from "./context/user.context";
 import {SignOut} from "./pages/SignOut/SignOut";
 
 import './App.css';
+import {CarsListContext} from './context/carsList.context';
 
 export const App = () => {
     const [userData, setUserData] = useState<UserLoginResponse>({
@@ -23,6 +24,7 @@ export const App = () => {
         lat: 0,
         lon: 0,
     });
+    const [carsList, setCarsList] = useState<CarListResponse>([]);
 
     useEffect(() => {
         const data = localStorage.getItem('user');
@@ -36,18 +38,20 @@ export const App = () => {
 
     return (
         <UserContext.Provider value={{...userData}}>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/cars" element={<List/>}/>
-                    <Route path="/cars/:id" element={<Car/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/register" element={<Register/>}/>
-                    <Route path="/watch/:userId" element={<Watch/>}/>
-                    <Route path="/info" element={<Info/>}/>
-                    <Route path="/signOut" element={<SignOut/>}/>
-                </Routes>
-            </BrowserRouter>
+            <CarsListContext.Provider value={{carsList, setCarsList}}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/cars" element={<List/>}/>
+                        <Route path="/cars/:id" element={<Car/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                        <Route path="/watch/:userId" element={<Watch/>}/>
+                        <Route path="/info" element={<Info/>}/>
+                        <Route path="/signOut" element={<SignOut/>}/>
+                    </Routes>
+                </BrowserRouter>
+            </CarsListContext.Provider>
         </UserContext.Provider>
     );
 };
