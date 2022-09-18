@@ -2,6 +2,7 @@ import React from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Footer} from "../../components/Footer/Footer";
 import {SearchForm} from "../../components/SearchForm/SearchForm";
+import {CarsList} from "../../components/CarsList/CarsList";
 
 export const List = () => {
     return (
@@ -10,10 +11,7 @@ export const List = () => {
 
             <div className="app__bg app__wrapper section__padding">
                 <SearchForm/>
-
-                <div className="app__wrapper_info">
-                    <p className="p__cormorant">Lista samochodów</p>
-                </div>
+                <CarsList/>
             </div>
 
             <Footer/>
