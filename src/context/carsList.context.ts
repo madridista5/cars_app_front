@@ -16,6 +16,8 @@ export const CarsListContext = createContext<CarsListContextType>({
         fuelType: '%',
         distance: 0,
         userId: '',
+        city: '',
+        profilePhotoUrl: '',
     }],
     setCarsList(e): void {
     },

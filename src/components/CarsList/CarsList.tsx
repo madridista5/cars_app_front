@@ -13,11 +13,13 @@ export const CarsList = () => {
 
     return (
         <div className="app__wrapper_info">
+            <div className="cars__container">
             {
                 carsList.map(car => (
                     <SingleCarViewOnTheList key={car.id} car={car}/>
                 ))
             }
+            </div>
         </div>
     );
 }
