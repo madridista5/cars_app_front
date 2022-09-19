@@ -1,7 +1,8 @@
 import React, {useContext, useEffect} from "react";
+import {CarsListContext} from "../../context/carsList.context";
+import {SingleCarViewOnTheList} from "../SingleCarViewOnTheList/SingleCarViewOnTheList";
 
 import './CarsList.css';
-import {CarsListContext} from "../../context/carsList.context";
 
 export const CarsList = () => {
     const {carsList} = useContext(CarsListContext);
@@ -12,7 +13,11 @@ export const CarsList = () => {
 
     return (
         <div className="app__wrapper_info">
-            <p className="p__cormorant">Lista samochodów</p>
+            {
+                carsList.map(car => (
+                    <SingleCarViewOnTheList key={car.id} car={car}/>
+                ))
+            }
         </div>
     );
 }
