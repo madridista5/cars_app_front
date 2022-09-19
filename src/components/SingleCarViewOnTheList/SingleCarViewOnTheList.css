@@ -37,6 +37,10 @@
     font-weight: 500;
 }
 
+.single__car-details_title:hover {
+    color: var(--color-red)
+}
+
 .single__car-details_price {
     font-weight: 700;
     color: var(--color-black);
