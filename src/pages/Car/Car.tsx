@@ -4,6 +4,7 @@ import {Footer} from "../../components/Footer/Footer";
 import {SingleCarGallery} from "../../components/SingleCarGallery/SingleCarGallery";
 
 import './Car.css';
+import {SingleCarData} from "../../components/SingleCarData/SingleCarData";
 
 export const Car = () => {
     const [carId, setCarId] = useState<string>('');
@@ -20,7 +21,7 @@ export const Car = () => {
             <div className="app__bg car__wrapper section__padding">
                 <div className="car__wrapper-section">
                     <SingleCarGallery carId={carId}/>
-                    <div style={{color: 'white'}}>Dane</div>
+                    <SingleCarData carId={carId}/>
                 </div>
                 <div className="car__wrapper-section">
                     <div style={{color: 'white'}}>Szczegóły</div>
