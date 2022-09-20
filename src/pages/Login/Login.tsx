@@ -7,6 +7,7 @@ import {UserLoginResponse} from "types";
 import {UserContext} from "../../context/user.context";
 
 import './Login.css';
+import {Footer} from "../../components/Footer/Footer";
 
 export const Login = () => {
     const [handleEmailAndPass, setState] = useHandleEmailAndPass({
@@ -92,6 +93,8 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </>
     );
 };

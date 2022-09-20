@@ -3,6 +3,7 @@ import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Link, useNavigate} from "react-router-dom";
 import {geocode} from "../../utils/geocoding";
 import {axiosData} from "../../utils/axiosData";
+import {Footer} from "../../components/Footer/Footer";
 
 export const Register = () => {
     const [registerData, setRegisterData] = useState({
@@ -138,6 +139,8 @@ export const Register = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </>
     );
 };

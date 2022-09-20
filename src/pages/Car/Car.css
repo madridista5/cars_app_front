@@ -1,12 +1,17 @@
 .car__wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
     min-height: 100vh;
 }
 
+.car__wrapper-section {
+    display: flex;
+    justify-content: space-around;
+}
+
 @media screen and (max-width: 1150px) {
-    .car__wrapper {
+    .car__wrapper-section {
         flex-direction: column;
     }
 }
