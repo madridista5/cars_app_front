@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex: 3;
 }
 
 .car__photo__wrapper {
@@ -56,6 +57,10 @@
 }
 
 @media screen and (max-width: 850px) {
+    .car__wrapper-section_gallery {
+        justify-content: center;
+    }
+
     .car__photo__wrapper {
         width: 80%;
         margin-bottom: 1rem;

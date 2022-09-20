@@ -1,3 +1,45 @@
 .car__wrapper-section_car-data {
+    background-color: rgba(255, 255, 255, 0.35);
+    margin-left: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 1rem;
+}
 
+.car__wrapper-section_car-data div, button {
+    margin-bottom: 1rem;
+}
+
+.car__wrapper-section_car-data button {
+    font-size: 20px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    color: var(--color-blue);
+    background-color: var(--color-grey);
+    transition: 0.5s;
+}
+
+.car__wrapper-section_car-data button:hover {
+    background-color: var(--color-red);
+}
+
+.single__car-data_brand {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.single__car-data_price {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--color-red);
+}
+
+@media screen and (max-width: 850px) {
+    .car__wrapper-section_car-data {
+        margin-left: 0;
+    }
 }
