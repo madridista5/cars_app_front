@@ -5,6 +5,7 @@ import {SingleCarGallery} from "../../components/SingleCarGallery/SingleCarGalle
 
 import './Car.css';
 import {SingleCarData} from "../../components/SingleCarData/SingleCarData";
+import {SingleCarDetails} from "../../components/SingleCarDetails/SingleCarDetails";
 
 export const Car = () => {
     const [carId, setCarId] = useState<string>('');
@@ -24,7 +25,7 @@ export const Car = () => {
                     <SingleCarData carId={carId}/>
                 </div>
                 <div className="car__wrapper-section">
-                    <div style={{color: 'white'}}>Szczegóły</div>
+                    <SingleCarDetails carId={carId}/>
                     <div style={{color: 'white'}}>Mapa</div>
                 </div>
             </div>
