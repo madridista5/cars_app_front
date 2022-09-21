@@ -34,6 +34,12 @@ export const SingleCarData = ({carId}: Props) => {
         lat: 0,
         lon: 0,
     });
+    const [showEmail, setShowEmail] = useState<boolean>(false);
+    const [showNumber, setShowNumber] = useState<boolean>(false);
+
+    const handleClick = (value: 'email' | 'number') => {
+        value === 'email' ? setShowEmail(!showEmail) : setShowNumber(!showNumber);
+    }
 
     useEffect(() => {
         (async () => {
@@ -53,9 +59,14 @@ export const SingleCarData = ({carId}: Props) => {
             <div className="single__car-data_brand">{car.brand} {car.model}</div>
             <div>{car.year} · {car.distance} · {car.fuelType}</div>
             <div className="single__car-data_price">{car.price} PLN</div>
-            <button className="single__car-data_btn-email"><MdEmail/> {user.email}</button>
-            <button className="single__car-data_btn-phone"><AiFillPhone/> {user.phoneNum}</button>
-            <div><IoLocationOutline/> {car.city}</div>
+            <button className="single__car-data_btn-email" onClick={() => handleClick('email')}>
+                <MdEmail/> {showEmail ? `${user.email}` : 'kontakt ze sprzedającym'}
+            </button>
+            <button className="single__car-data_btn-phone" onClick={() => handleClick('number')}>
+                <AiFillPhone/> {showNumber ? `${user.phoneNum}` : 'Wyświetl numer'}
+            </button>
+            <button>Obserwuj</button>
+            <div className="single__car-data_city"><IoLocationOutline/> {car.city}</div>
         </div>
     );
 }

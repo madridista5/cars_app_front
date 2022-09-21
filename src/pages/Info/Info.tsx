@@ -2,6 +2,7 @@ import React from "react";
 
 import {useLocation} from "react-router-dom";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
+import {Footer} from "../../components/Footer/Footer";
 
 interface StateLocation {
     data: string,
@@ -28,6 +29,8 @@ export const Info = () => {
                 </div>
 
             </div>
+
+            <Footer/>
         </>
     );
 };

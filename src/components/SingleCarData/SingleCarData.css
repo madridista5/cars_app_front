@@ -25,6 +25,7 @@
 
 .car__wrapper-section_car-data button:hover {
     background-color: var(--color-red);
+    cursor: pointer;
 }
 
 .single__car-data_brand {
@@ -36,6 +37,10 @@
     font-size: 30px;
     font-weight: 600;
     color: var(--color-red);
+}
+
+.single__car-data_city {
+    font-weight: 500;
 }
 
 @media screen and (max-width: 850px) {

@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {UserContext} from "../../context/user.context";
 import {axiosData} from "../../utils/axiosData";
+import {Footer} from "../../components/Footer/Footer";
 
 export const SignOut = () => {
     const userData = useContext(UserContext);
@@ -38,6 +39,8 @@ export const SignOut = () => {
                 </div>
 
             </div>
+
+            <Footer/>
         </>
     )
 }
