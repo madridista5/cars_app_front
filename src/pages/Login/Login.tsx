@@ -41,14 +41,16 @@ export const Login = () => {
                 pwd: handleEmailAndPass.password,
             });
             const data: UserLoginResponse = res.data;
-            localStorage.setItem('user', JSON.stringify(data));
-            userData.id = data.id;
-            userData.email = data.email;
-            userData.role = data.role;
-            userData.phoneNum = data.phoneNum;
-            userData.address = data.address;
-            userData.lat = data.lat;
-            userData.lon = data.lon;
+            if(data.id) {
+                localStorage.setItem('user', JSON.stringify(data));
+                userData.id = data.id;
+                userData.email = data.email;
+                userData.role = data.role;
+                userData.phoneNum = data.phoneNum;
+                userData.address = data.address;
+                userData.lat = data.lat;
+                userData.lon = data.lon;
+            }
 
             navigate('/info', {
                 state: {data: data.info},
