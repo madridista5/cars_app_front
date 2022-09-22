@@ -25,7 +25,7 @@ export const Car = () => {
                     <SingleCarGallery carId={carId}/>
                     <SingleCarData carId={carId}/>
                 </div>
-                <div className="car__wrapper-section">
+                <div className="car__wrapper-section" style={{marginTop: '1rem'}}>
                     <SingleCarDetails carId={carId}/>
                     <SingleCarMap carId={carId}/>
                 </div>
