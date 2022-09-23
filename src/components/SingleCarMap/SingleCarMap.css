@@ -1,3 +1,10 @@
-.car__wrapper-section_car-map {
+.car__wrapper-section_map {
     flex: 3;
+    height: 60vh;
+    margin-left: 1rem;
+    z-index: 0;
+}
+
+.leaflet-container {
+    height: 100%;
 }
