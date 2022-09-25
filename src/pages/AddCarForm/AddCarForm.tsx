@@ -1,8 +1,9 @@
-import React, {SyntheticEvent, useState} from "react";
+import React, {SyntheticEvent, useContext, useState} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Footer} from "../../components/Footer/Footer";
-
-import './AddCarForm.css';
+import {UserContext} from "../../context/user.context";
+import {axiosData} from "../../utils/axiosData";
+import {useNavigate} from "react-router-dom";
 
 export const AddCarForm = () => {
     const [newCar, setNewCar] = useState({
@@ -15,9 +16,32 @@ export const AddCarForm = () => {
         fuelType: '',
         profilePhotoUrl: '',
     });
+    const {id} = useContext(UserContext);
+    const navigate = useNavigate();
 
     const handleForm = (e: SyntheticEvent) => {
         e.preventDefault();
+        const {bodyStyle, brand, model, price, year, distance, fuelType, profilePhotoUrl} = newCar;
+        if(!bodyStyle || bodyStyle.length > 12 || !brand || brand.length > 255 || !model || model.length > 255 || !price || price > 99999999999 || !year || year > 9999 || !distance || distance > 99999999999 || !fuelType || fuelType.length > 20 || !profilePhotoUrl || profilePhotoUrl.length > 255) {
+            return;
+        }
+
+        (async () => {
+            const res = await axiosData.post(`/cars/add/${id}`, {
+                bodyStyle,
+                brand,
+                model,
+                price,
+                year,
+                distance,
+                fuelType,
+                profilePhotoUrl,
+            });
+            const data: string = res.data;
+            navigate('/info', {
+                state: {data},
+            });
+        })();
     };
 
     return (
