@@ -17,6 +17,11 @@ export const NavbarRoutes = () => {
             </div>
             <ul className="app__navbar-links">
                 <li className="p__opensans"><Link to="/">Home</Link></li>
+                {userData.id && <>
+                    <li className="p__opensans"><Link to="/addCar">Dodaj ogłoszenie</Link></li>
+                    <li className="p__opensans"><Link to="/usersCarsList">Moje ogłoszenia</Link></li>
+                </>
+                }
             </ul>
             <div className="app__navbar-login">
                 {userData.id !== ''

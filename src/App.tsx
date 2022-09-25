@@ -10,9 +10,10 @@ import {Info} from "./pages/Info/Info";
 import {CarListResponse, UserLoginResponse} from 'types';
 import {UserContext} from "./context/user.context";
 import {SignOut} from "./pages/SignOut/SignOut";
+import {CarsListContext} from './context/carsList.context';
+import { AddCarForm } from './pages/AddCarForm/AddCarForm';
 
 import './App.css';
-import {CarsListContext} from './context/carsList.context';
 
 export const App = () => {
     const [userData, setUserData] = useState<UserLoginResponse>({
@@ -49,6 +50,7 @@ export const App = () => {
                         <Route path="/watch/:userId" element={<Watch/>}/>
                         <Route path="/info" element={<Info/>}/>
                         <Route path="/signOut" element={<SignOut/>}/>
+                        <Route path="/addCar" element={<AddCarForm/>}/>
                     </Routes>
                 </BrowserRouter>
             </CarsListContext.Provider>
