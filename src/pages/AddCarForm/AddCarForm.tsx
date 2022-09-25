@@ -54,6 +54,78 @@ export const AddCarForm = () => {
                                 value={newCar.brand}
                             />
 
+                            {newCar.model.length > 255 &&
+                                <p className="p__opensans" style={{color: 'red'}}>Model samochodu nie może mieć więcej niż 255 znaków.</p>}
+                            <input
+                                type="text"
+                                placeholder="Model pojazdu"
+                                onChange={e => setNewCar({
+                                    ...newCar,
+                                    model: e.target.value,
+                                })}
+                                value={newCar.model}
+                            />
+
+                            <p className="p__opensans">Cena pojazdu:</p>
+                            {newCar.price > 99999999999 &&
+                                <p className="p__opensans" style={{color: 'red'}}>Cena pojazdu musi mieścić się w przedziale od 0 do 99999999999.</p>}
+                            <input
+                                type="number"
+                                onChange={e => setNewCar({
+                                    ...newCar,
+                                    price: Number(e.target.value),
+                                })}
+                                value={newCar.price}
+                            />
+
+                            <p className="p__opensans">Rok produkcji pojazdu:</p>
+                            {newCar.year > 9999 &&
+                                <p className="p__opensans" style={{color: 'red'}}>Rok produkcji pojazdu musi mieścić się w przedziale od 0 do 9999.</p>}
+                            <input
+                                type="number"
+                                onChange={e => setNewCar({
+                                    ...newCar,
+                                    year: Number(e.target.value),
+                                })}
+                                value={newCar.year}
+                            />
+
+                            <p className="p__opensans">Przebieg pojazdu:</p>
+                            {newCar.distance > 99999999999 &&
+                                <p className="p__opensans" style={{color: 'red'}}>Przebieg pojazdu musi mieścić się w przedziale od 0 do 99999999999.</p>}
+                            <input
+                                type="number"
+                                onChange={e => setNewCar({
+                                    ...newCar,
+                                    distance: Number(e.target.value),
+                                })}
+                                value={newCar.distance}
+                            />
+
+                            {newCar.fuelType.length > 20 &&
+                                <p className="p__opensans" style={{color: 'red'}}>Typ paliwa nie może mieć więcej niż 20 znaków.</p>}
+                            <input
+                                type="text"
+                                placeholder="Typ paliwa"
+                                onChange={e => setNewCar({
+                                    ...newCar,
+                                    fuelType: e.target.value,
+                                })}
+                                value={newCar.fuelType}
+                            />
+
+                            {newCar.profilePhotoUrl.length > 255 &&
+                                <p className="p__opensans" style={{color: 'red'}}>Adres do zdjęcia profilowego nie może mieć więcej niż 255 znaków.</p>}
+                            <input
+                                type="text"
+                                placeholder="Adres url do zdjęcia profilowego"
+                                onChange={e => setNewCar({
+                                    ...newCar,
+                                    profilePhotoUrl: e.target.value,
+                                })}
+                                value={newCar.profilePhotoUrl}
+                            />
+
                             <button type="submit" className="custom__button">Dodaj ogłoszenie</button>
                         </form>
                     </div>
