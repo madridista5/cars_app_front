@@ -12,6 +12,7 @@ import {UserContext} from "./context/user.context";
 import {SignOut} from "./pages/SignOut/SignOut";
 import {CarsListContext} from './context/carsList.context';
 import { AddCarForm } from './pages/AddCarForm/AddCarForm';
+import {UsersCarsList} from "./pages/UsersCarsList/UsersCarsList";
 
 import './App.css';
 
@@ -51,6 +52,7 @@ export const App = () => {
                         <Route path="/info" element={<Info/>}/>
                         <Route path="/signOut" element={<SignOut/>}/>
                         <Route path="/addCar" element={<AddCarForm/>}/>
+                        <Route path="/usersCarsList" element={<UsersCarsList/>}/>
                     </Routes>
                 </BrowserRouter>
             </CarsListContext.Provider>
