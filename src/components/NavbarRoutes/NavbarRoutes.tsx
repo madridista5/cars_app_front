@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {GiHamburgerMenu} from "react-icons/gi";
 import {AiFillCloseCircle} from "react-icons/ai";
@@ -24,9 +24,9 @@ export const NavbarRoutes = () => {
                 }
             </ul>
             <div className="app__navbar-login">
-                {userData.id !== ''
-                    ? <Link to="/signOut" className="p__opensans" onClick={() => userData.id = ''}>Wyloguj</Link>
-                    : <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
+                {userData.id === ''
+                    ? <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
+                    : <Link to="/signOut" className="p__opensans" onClick={() => userData.id = ''}>Wyloguj</Link>
                 }
                 <div/>
                 <Link to="/watch/userId" className="p__opensans">Obserwowane</Link>
@@ -40,6 +40,11 @@ export const NavbarRoutes = () => {
                                            onClick={() => setToggleMenu(false)}/>
                         <ul className="app__navbar-smallscreen-links">
                             <li className="p__opensans"><Link to="/">Home</Link></li>
+                            {userData.id && <>
+                                <li className="p__opensans"><Link to="/addCar">Dodaj ogłoszenie</Link></li>
+                                <li className="p__opensans"><Link to="/usersCarsList">Moje ogłoszenia</Link></li>
+                            </>
+                            }
                             { userData.id !== ''
                                 ? <li className="p__opensans"><Link to="/signOut" onClick={() => userData.id = ''}>Wyloguj</Link></li>
                                 : <li className="p__opensans"><Link to="/login">Logowanie /

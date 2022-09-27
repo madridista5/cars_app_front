@@ -59,6 +59,12 @@ export const Register = () => {
 
         (async () => {
             const {lat, lon} = await geocode(registerData.address);
+            if(!lat || !lon) {
+                navigate('/info', {
+                    state: {data: 'Nie udało się założyć konta. Podałeś nieprawidłowy adres.'},
+                });
+                return;
+            }
             const {data} = await axiosData.post('/auth/register', {
                 email: registerData.email,
                 pwd: registerData.pwd,
