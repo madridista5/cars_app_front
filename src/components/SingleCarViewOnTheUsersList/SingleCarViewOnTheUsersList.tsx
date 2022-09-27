@@ -17,7 +17,8 @@ export const SingleCarViewOnTheUsersList = ({car}: Props) => {
     const handleWatchClick = () => {
         navigate('/add/image', {
             state: {
-                addImageInfo,
+                carId: addImageInfo.carId,
+                userId: addImageInfo.userId,
             },
         });
     }
