@@ -1,11 +1,11 @@
 import React, {useContext, useEffect, useState} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Footer} from "../../components/Footer/Footer";
-import {SingleCarViewOnTheList} from "../../components/SingleCarViewOnTheList/SingleCarViewOnTheList";
 import {UserContext} from "../../context/user.context";
 import {axiosData} from "../../utils/axiosData";
 import { CarListResponse } from "types";
 import {useNavigate} from "react-router-dom";
+import {SingleCarViewOnTheUsersList} from "../../components/SingleCarViewOnTheUsersList/SingleCarViewOnTheUsersList";
 
 export const UsersCarsList = () => {
     const [usersCarsList, setUsersCarsList] = useState<CarListResponse>([]);
@@ -22,6 +22,12 @@ export const UsersCarsList = () => {
             }
             const response = await axiosData.get(`/cars/getUsersCars/${id}`);
             const data: CarListResponse = response.data;
+            if(data.length === 0) {
+                navigate('/info', {
+                    state: {data: 'Nie masz żadnych ogłoszeń.'},
+                });
+                return;
+            }
             setUsersCarsList(data);
         })();
     }, []);
@@ -37,7 +43,7 @@ export const UsersCarsList = () => {
                     <div className="cars__container">
                         {
                             usersCarsList.map(car => (
-                                <SingleCarViewOnTheList key={car.id} car={car}/>
+                                <SingleCarViewOnTheUsersList key={car.id} car={car}/>
                             ))
                         }
                     </div>
