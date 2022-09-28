@@ -1,11 +1,11 @@
 import React, {useContext, useEffect, useState} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Footer} from "../../components/Footer/Footer";
-import {SingleCarViewOnTheUsersList} from "../../components/SingleCarViewOnTheUsersList/SingleCarViewOnTheUsersList";
 import {UserContext} from "../../context/user.context";
 import {useNavigate} from "react-router-dom";
 import {axiosData} from "../../utils/axiosData";
 import {CarListResponse, SingleCarResponse, WatchRecordResponse} from "types";
+import {SingleCarViewOnTheWatchList} from "../../components/SingleCarViewOnTheWatchList/SingleCarViewOnTheWatchList";
 
 export const Watch = () => {
     const [usersCarsList, setUsersCarsList] = useState<CarListResponse>([]);
@@ -49,7 +49,7 @@ export const Watch = () => {
                     <div className="cars__container">
                         {
                             usersCarsList.map(car => (
-                                <SingleCarViewOnTheUsersList key={car.id} car={car}/>
+                                <SingleCarViewOnTheWatchList key={car.id} car={car}/>
                             ))
                         }
                     </div>
