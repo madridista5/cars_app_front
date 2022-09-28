@@ -18,14 +18,17 @@ import {AddImageForm} from "./pages/AddImageForm/AddImageForm";
 import './App.css';
 
 export const App = () => {
-    const [userData, setUserData] = useState<UserLoginResponse>({
-        id: '',
-        email: '',
-        role: '',
-        phoneNum: 0,
-        address: '',
-        lat: 0,
-        lon: 0,
+    const [userData, setUserData] = useState({
+        userData: {
+            id: '',
+            email: '',
+            role: '',
+            phoneNum: 0,
+            address: '',
+            lat: 0,
+            lon: 0,
+        },
+        setUserData: () => {},
     });
     const [carsList, setCarsList] = useState<CarListResponse>([]);
 
@@ -34,7 +37,10 @@ export const App = () => {
         if (data !== null) {
             const userDataFromLS: UserLoginResponse = JSON.parse(data);
             setUserData({
-                ...userDataFromLS,
+                userData: {
+                    ...userDataFromLS,
+                },
+                setUserData: () => {},
             });
         }
     }, []);

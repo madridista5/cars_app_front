@@ -12,12 +12,12 @@ interface Props {
 }
 
 export const SingleCarViewOnTheList = ({car}: Props) => {
-    const {id} = useContext(UserContext);
+    const {userData} = useContext(UserContext);
     const navigate = useNavigate();
 
     const handleWatchClick = async () => {
-        const res = await axiosData.post(`/watch/add/${id}`, {
-            userId: id,
+        const res = await axiosData.post(`/watch/add/${userData.id}`, {
+            userId: userData.id,
             carId: car.id,
         });
         const data: string = res.data;

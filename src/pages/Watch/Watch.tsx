@@ -9,18 +9,18 @@ import {CarListResponse, SingleCarResponse, WatchRecordResponse} from "types";
 
 export const Watch = () => {
     const [usersCarsList, setUsersCarsList] = useState<CarListResponse>([]);
-    const {id} = useContext(UserContext);
+    const {userData} = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
-            if (!id) {
+            if (!userData.id) {
                 navigate('/info', {
                     state: {data: 'Aby zobaczyć "obserwowane" musisz najpierw się zalogować.'},
                 });
                 return;
             }
-            const responseWatch = await axiosData.get(`/watch/allWatch/${id}`);
+            const responseWatch = await axiosData.get(`/watch/allWatch/${userData.id}`);
             const data: WatchRecordResponse = responseWatch.data;
             if (data.length === 0) {
                 navigate('/info', {

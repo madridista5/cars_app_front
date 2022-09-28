@@ -16,7 +16,7 @@ export const Login = () => {
         isEmailCorrect: true,
         isPasswordCorrect: true,
     });
-    const userData = useContext(UserContext);
+    const {setUserData} = useContext(UserContext);
     const navigate = useNavigate();
 
     const handleForm = (e: SyntheticEvent) => {
@@ -43,18 +43,20 @@ export const Login = () => {
             const data: UserLoginResponse = res.data;
             if (data.id) {
                 localStorage.setItem('user', JSON.stringify(data));
-                userData.id = data.id;
-                userData.email = data.email;
-                userData.role = data.role;
-                userData.phoneNum = data.phoneNum;
-                userData.address = data.address;
-                userData.lat = data.lat;
-                userData.lon = data.lon;
+                setUserData({
+                    id: data.id,
+                    email: data.email,
+                    role: data.role,
+                    phoneNum: data.phoneNum,
+                    address: data.address,
+                    lat: data.lat,
+                    lon: data.lon,
+                });
             }
-
             navigate('/info', {
                 state: {data: data.info},
             });
+            window.location.reload();
         })();
     }
 

@@ -39,7 +39,7 @@ export const SingleCarData = ({carId}: Props) => {
     const [showEmail, setShowEmail] = useState<boolean>(false);
     const [showNumber, setShowNumber] = useState<boolean>(false);
     const navigate = useNavigate();
-    const {id} = useContext(UserContext);
+    const {userData} = useContext(UserContext);
 
     const handleClick = (value: 'email' | 'number') => {
         value === 'email' ? setShowEmail(!showEmail) : setShowNumber(!showNumber);
@@ -59,9 +59,8 @@ export const SingleCarData = ({carId}: Props) => {
     }, [carId]);
 
     const handleWatchClick = async () => {
-        console.log(user.id);
-        const res = await axiosData.post(`/watch/add/${id}`, {
-            userId: id,
+        const res = await axiosData.post(`/watch/add/${userData.id}`, {
+            userId: userData.id,
             carId: car.id,
         });
         const data: string = res.data;

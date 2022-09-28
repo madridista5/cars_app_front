@@ -8,7 +8,7 @@ import './NavbarRoutes.css';
 
 export const NavbarRoutes = () => {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-    const userData = useContext(UserContext);
+    const {userData} = useContext(UserContext);
 
     return (
         <div className="app__navbar">

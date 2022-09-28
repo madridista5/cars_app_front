@@ -8,8 +8,7 @@ import './NavbarHome.css';
 
 export const NavbarHome = () => {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-    const {id} = useContext(UserContext);
-    const userData = useContext(UserContext);
+    const {userData} = useContext(UserContext);
 
     return (
         <div className="app__navbar">
@@ -22,7 +21,7 @@ export const NavbarHome = () => {
                 <li className="p__opensans"><a href="#awards">Nagrody</a></li>
             </ul>
             <div className="app__navbar-login">
-                {id !== ''
+                {userData.id !== ''
                     ? <Link to="/signOut" className="p__opensans" onClick={() => userData.id = ''}>Wyloguj</Link>
                     : <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
                 }
@@ -41,7 +40,7 @@ export const NavbarHome = () => {
                             <li className="p__opensans"><a href="#awards">Nagrody</a></li>
                             <li className="p__opensans"><a href="#gallery">Galeria</a></li>
 
-                            {id !== ''
+                            {userData.id !== ''
                                 ? <li className="p__opensans"><Link to="/signOut" onClick={() => userData.id = ''}>Wyloguj</Link></li>
                                 : <li className="p__opensans"><Link to="/login">Logowanie /
                                 Rejestracja</Link></li>
