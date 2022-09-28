@@ -5,22 +5,17 @@ import {IoLocationOutline} from "react-icons/io5";
 import {axiosData} from "../../utils/axiosData";
 import {UserContext} from "../../context/user.context";
 
-import './SingleCarViewOnTheList.css';
-
 interface Props {
     car: CarEntity,
 }
 
-export const SingleCarViewOnTheList = ({car}: Props) => {
+export const SingleCarViewOnTheWatchList = ({car}: Props) => {
     const {userData} = useContext(UserContext);
     const navigate = useNavigate();
 
-    const handleWatchClick = async () => {
-        const res = await axiosData.post(`/watch/add/${userData.id}`, {
-            userId: userData.id,
-            carId: car.id,
-        });
-        const data: string = res.data;
+    const handleStopWatchClick = async () => {
+        const resDeleteWatch = await axiosData.delete(`/watch/delete/${userData.id}/${car.id}`);
+        const data: string = resDeleteWatch.data;
         navigate('/info', {
             state: {data},
         });
@@ -40,7 +35,9 @@ export const SingleCarViewOnTheList = ({car}: Props) => {
                 <div>{car.year} · {car.distance} km · {car.fuelType}</div>
                 <div className="single__car-details_city">
                     <div><IoLocationOutline/> {car.city}</div>
-                    <button className="custom__button" onClick={handleWatchClick}>Obserwuj</button>
+                </div>
+                <div>
+                    <button className="custom__button" onClick={handleStopWatchClick}>Usuń z obserwowanych</button>
                 </div>
             </div>
         </div>

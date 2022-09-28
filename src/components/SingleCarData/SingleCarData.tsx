@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {axiosData} from "../../utils/axiosData";
 import { SingleCarResponse, UserLoginResponse } from "types";
 import {IoLocationOutline} from "react-icons/io5";
 import {MdEmail} from "react-icons/md";
 import {AiFillPhone} from "react-icons/ai";
+import {useNavigate} from "react-router-dom";
 
 import './SingleCarData.css';
+import {UserContext} from "../../context/user.context";
 
 interface Props {
     carId: string;
@@ -36,6 +38,8 @@ export const SingleCarData = ({carId}: Props) => {
     });
     const [showEmail, setShowEmail] = useState<boolean>(false);
     const [showNumber, setShowNumber] = useState<boolean>(false);
+    const navigate = useNavigate();
+    const {userData} = useContext(UserContext);
 
     const handleClick = (value: 'email' | 'number') => {
         value === 'email' ? setShowEmail(!showEmail) : setShowNumber(!showNumber);
@@ -54,6 +58,17 @@ export const SingleCarData = ({carId}: Props) => {
         })();
     }, [carId]);
 
+    const handleWatchClick = async () => {
+        const res = await axiosData.post(`/watch/add/${userData.id}`, {
+            userId: userData.id,
+            carId: car.id,
+        });
+        const data: string = res.data;
+        navigate('/info', {
+            state: {data},
+        });
+    }
+
     return (
         <div className="car__wrapper-section_car-data">
             <div className="single__car-data_brand">{car.brand} {car.model}</div>
@@ -65,7 +80,7 @@ export const SingleCarData = ({carId}: Props) => {
             <button className="single__car-data_btn-phone" onClick={() => handleClick('number')}>
                 <AiFillPhone/> {showNumber ? `${user.phoneNum}` : 'Wyświetl numer'}
             </button>
-            <button>Obserwuj</button>
+            <button className="custom__button" onClick={handleWatchClick}>Obserwuj</button>
             <div className="single__car-data_city"><IoLocationOutline/> {car.city}</div>
         </div>
     );

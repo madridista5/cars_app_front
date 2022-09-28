@@ -16,7 +16,7 @@ export const AddCarForm = () => {
         fuelType: '',
         profilePhotoUrl: '',
     });
-    const {id} = useContext(UserContext);
+    const {userData} = useContext(UserContext);
     const navigate = useNavigate();
 
     const handleForm = (e: SyntheticEvent) => {
@@ -27,7 +27,7 @@ export const AddCarForm = () => {
         }
 
         (async () => {
-            const res = await axiosData.post(`/cars/add/${id}`, {
+            const res = await axiosData.post(`/cars/add/${userData.id}`, {
                 bodyStyle,
                 brand,
                 model,

@@ -8,8 +8,7 @@ import './NavbarHome.css';
 
 export const NavbarHome = () => {
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-    const {id} = useContext(UserContext);
-    const userData = useContext(UserContext);
+    const {userData} = useContext(UserContext);
 
     return (
         <div className="app__navbar">
@@ -22,12 +21,12 @@ export const NavbarHome = () => {
                 <li className="p__opensans"><a href="#awards">Nagrody</a></li>
             </ul>
             <div className="app__navbar-login">
-                {id !== ''
+                {userData.id !== ''
                     ? <Link to="/signOut" className="p__opensans" onClick={() => userData.id = ''}>Wyloguj</Link>
                     : <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
                 }
                 <div/>
-                <Link to="/watch/userId" className="p__opensans">Obserwowane</Link>
+                <Link to="/watch" className="p__opensans">Obserwowane</Link>
             </div>
             <div className="app__navbar-smallscreen">
                 <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)}/>
@@ -41,12 +40,12 @@ export const NavbarHome = () => {
                             <li className="p__opensans"><a href="#awards">Nagrody</a></li>
                             <li className="p__opensans"><a href="#gallery">Galeria</a></li>
 
-                            {id !== ''
+                            {userData.id !== ''
                                 ? <li className="p__opensans"><Link to="/signOut" onClick={() => userData.id = ''}>Wyloguj</Link></li>
                                 : <li className="p__opensans"><Link to="/login">Logowanie /
                                 Rejestracja</Link></li>
                             }
-                            <li className="p__opensans"><Link to="/watch/userId">Obserwowane</Link></li>
+                            <li className="p__opensans"><Link to="/watch">Obserwowane</Link></li>
                         </ul>
                     </div>
                 )}

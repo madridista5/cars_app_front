@@ -9,18 +9,18 @@ import {SingleCarViewOnTheUsersList} from "../../components/SingleCarViewOnTheUs
 
 export const UsersCarsList = () => {
     const [usersCarsList, setUsersCarsList] = useState<CarListResponse>([]);
-    const {id} = useContext(UserContext);
+    const {userData} = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
-            if(!id) {
+            if(!userData.id) {
                 navigate('/info', {
                     state: {data: 'Aby zobaczyć swoje ogłoszenia musisz najpierw się zalogować.'},
                 });
                 return;
             }
-            const response = await axiosData.get(`/cars/getUsersCars/${id}`);
+            const response = await axiosData.get(`/cars/getUsersCars/${userData.id}`);
             const data: CarListResponse = response.data;
             if(data.length === 0) {
                 navigate('/info', {

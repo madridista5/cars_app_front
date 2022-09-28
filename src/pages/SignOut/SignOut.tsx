@@ -5,16 +5,18 @@ import {axiosData} from "../../utils/axiosData";
 import {Footer} from "../../components/Footer/Footer";
 
 export const SignOut = () => {
-    const userData = useContext(UserContext);
+    const {setUserData} = useContext(UserContext);
 
     useEffect(() => {
-        userData.id = '';
-        userData.email = '';
-        userData.role = '';
-        userData.phoneNum = 0;
-        userData.address = '';
-        userData.lat = 0;
-        userData.lon = 0;
+        setUserData({
+            id: '',
+            email: '',
+            role: '',
+            phoneNum: 0,
+            address: '',
+            lat: 0,
+            lon: 0,
+        });
         localStorage.clear();
 
         (async () => {

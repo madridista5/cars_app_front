@@ -18,14 +18,17 @@ import {AddImageForm} from "./pages/AddImageForm/AddImageForm";
 import './App.css';
 
 export const App = () => {
-    const [userData, setUserData] = useState<UserLoginResponse>({
-        id: '',
-        email: '',
-        role: '',
-        phoneNum: 0,
-        address: '',
-        lat: 0,
-        lon: 0,
+    const [userData, setUserData] = useState({
+        userData: {
+            id: '',
+            email: '',
+            role: '',
+            phoneNum: 0,
+            address: '',
+            lat: 0,
+            lon: 0,
+        },
+        setUserData: () => {},
     });
     const [carsList, setCarsList] = useState<CarListResponse>([]);
 
@@ -34,7 +37,10 @@ export const App = () => {
         if (data !== null) {
             const userDataFromLS: UserLoginResponse = JSON.parse(data);
             setUserData({
-                ...userDataFromLS,
+                userData: {
+                    ...userDataFromLS,
+                },
+                setUserData: () => {},
             });
         }
     }, []);
@@ -49,7 +55,7 @@ export const App = () => {
                         <Route path="/cars/:id" element={<Car/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
-                        <Route path="/watch/:userId" element={<Watch/>}/>
+                        <Route path="/watch/" element={<Watch/>}/>
                         <Route path="/info" element={<Info/>}/>
                         <Route path="/signOut" element={<SignOut/>}/>
                         <Route path="/addCar" element={<AddCarForm/>}/>
