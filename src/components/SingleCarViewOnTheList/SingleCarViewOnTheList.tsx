@@ -1,21 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 import { CarEntity } from "types";
 import {Link, useNavigate} from "react-router-dom";
 import {IoLocationOutline} from "react-icons/io5";
+import {axiosData} from "../../utils/axiosData";
+import {UserContext} from "../../context/user.context";
 
 import './SingleCarViewOnTheList.css';
-import {axiosData} from "../../utils/axiosData";
 
 interface Props {
     car: CarEntity,
 }
 
 export const SingleCarViewOnTheList = ({car}: Props) => {
+    const {id} = useContext(UserContext);
     const navigate = useNavigate();
 
     const handleWatchClick = async () => {
-        const res = await axiosData.post(`/watch/add/${car.userId}`, {
-            userId: car.userId,
+        const res = await axiosData.post(`/watch/add/${id}`, {
+            userId: id,
             carId: car.id,
         });
         const data: string = res.data;

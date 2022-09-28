@@ -41,7 +41,7 @@ export const Login = () => {
                 pwd: handleEmailAndPass.password,
             });
             const data: UserLoginResponse = res.data;
-            if(data.id) {
+            if (data.id) {
                 localStorage.setItem('user', JSON.stringify(data));
                 userData.id = data.id;
                 userData.email = data.email;

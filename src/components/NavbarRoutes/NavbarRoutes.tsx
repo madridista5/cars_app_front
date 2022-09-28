@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {GiHamburgerMenu} from "react-icons/gi";
 import {AiFillCloseCircle} from "react-icons/ai";
@@ -29,7 +29,7 @@ export const NavbarRoutes = () => {
                     : <Link to="/signOut" className="p__opensans" onClick={() => userData.id = ''}>Wyloguj</Link>
                 }
                 <div/>
-                <Link to="/watch/userId" className="p__opensans">Obserwowane</Link>
+                <Link to="/watch" className="p__opensans">Obserwowane</Link>
             </div>
             <div className="app__navbar-smallscreen">
                 <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)}/>
@@ -50,7 +50,7 @@ export const NavbarRoutes = () => {
                                 : <li className="p__opensans"><Link to="/login">Logowanie /
                                     Rejestracja</Link></li>
                             }
-                            <li className="p__opensans"><Link to="/watch/userId">Obserwowane</Link></li>
+                            <li className="p__opensans"><Link to="/watch">Obserwowane</Link></li>
                         </ul>
                     </div>
                 )}

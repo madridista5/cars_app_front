@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {axiosData} from "../../utils/axiosData";
 import { SingleCarResponse, UserLoginResponse } from "types";
 import {IoLocationOutline} from "react-icons/io5";
@@ -7,6 +7,7 @@ import {AiFillPhone} from "react-icons/ai";
 import {useNavigate} from "react-router-dom";
 
 import './SingleCarData.css';
+import {UserContext} from "../../context/user.context";
 
 interface Props {
     carId: string;
@@ -38,6 +39,7 @@ export const SingleCarData = ({carId}: Props) => {
     const [showEmail, setShowEmail] = useState<boolean>(false);
     const [showNumber, setShowNumber] = useState<boolean>(false);
     const navigate = useNavigate();
+    const {id} = useContext(UserContext);
 
     const handleClick = (value: 'email' | 'number') => {
         value === 'email' ? setShowEmail(!showEmail) : setShowNumber(!showNumber);
@@ -57,8 +59,9 @@ export const SingleCarData = ({carId}: Props) => {
     }, [carId]);
 
     const handleWatchClick = async () => {
-        const res = await axiosData.post(`/watch/add/${car.userId}`, {
-            userId: car.userId,
+        console.log(user.id);
+        const res = await axiosData.post(`/watch/add/${id}`, {
+            userId: id,
             carId: car.id,
         });
         const data: string = res.data;

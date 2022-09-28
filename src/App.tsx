@@ -49,7 +49,7 @@ export const App = () => {
                         <Route path="/cars/:id" element={<Car/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
-                        <Route path="/watch/:userId" element={<Watch/>}/>
+                        <Route path="/watch/" element={<Watch/>}/>
                         <Route path="/info" element={<Info/>}/>
                         <Route path="/signOut" element={<SignOut/>}/>
                         <Route path="/addCar" element={<AddCarForm/>}/>

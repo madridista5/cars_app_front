@@ -27,7 +27,7 @@ export const NavbarHome = () => {
                     : <Link to="/login" className="p__opensans">Logowanie / Rejestracja</Link>
                 }
                 <div/>
-                <Link to="/watch/userId" className="p__opensans">Obserwowane</Link>
+                <Link to="/watch" className="p__opensans">Obserwowane</Link>
             </div>
             <div className="app__navbar-smallscreen">
                 <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)}/>
@@ -46,7 +46,7 @@ export const NavbarHome = () => {
                                 : <li className="p__opensans"><Link to="/login">Logowanie /
                                 Rejestracja</Link></li>
                             }
-                            <li className="p__opensans"><Link to="/watch/userId">Obserwowane</Link></li>
+                            <li className="p__opensans"><Link to="/watch">Obserwowane</Link></li>
                         </ul>
                     </div>
                 )}
