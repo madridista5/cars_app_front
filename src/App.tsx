@@ -14,9 +14,9 @@ import {CarsListContext} from './context/carsList.context';
 import { AddCarForm } from './pages/AddCarForm/AddCarForm';
 import {UsersCarsList} from "./pages/UsersCarsList/UsersCarsList";
 import {AddImageForm} from "./pages/AddImageForm/AddImageForm";
+import {Admin} from "./pages/Admin/Admin";
 
 import './App.css';
-import {Admin} from "./pages/Admin/Admin";
 
 export const App = () => {
     const [userData, setUserData] = useState({
