@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {NavbarRoutes} from "../../components/NavbarRoutes/NavbarRoutes";
 import {Footer} from "../../components/Footer/Footer";
-import {SingleCarViewOnTheWatchList} from "../../components/SingleCarViewOnTheWatchList/SingleCarViewOnTheWatchList";
 import { CarListResponse } from "types";
 import {axiosData} from "../../utils/axiosData";
+import {SingleCarViewOnTheAdminList} from "../../components/SingleCarViewOnTheAdminList/SingleCarViewOnTheAdminList";
 
 export const Admin = () => {
     const [carsList, setCarsList] = useState<CarListResponse>([]);
@@ -29,7 +29,7 @@ export const Admin = () => {
                     <div className="cars__container">
                         {
                             carsList.map(car => (
-                                <SingleCarViewOnTheWatchList key={car.id} car={car}/>
+                                <SingleCarViewOnTheAdminList key={car.id} car={car}/>
                             ))
                         }
                     </div>
