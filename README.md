@@ -1,46 +1,123 @@
-# Getting Started with Create React App
+<h1>See how this application works:</h1>
+<br>
+https://carsapp.tlossy.networkmanager.pl
+<br>
+<br>
+You can create your own account using your email adress, log in and test how it works 🙂
+<br>
+<br>
+If you don't want to create an account you can use this test USER account:
+<br>
+email: <b>user@gmail.com</b>
+<br>
+password: <b>user1234</b></p>
+<br>
+You can also use this test ADMIN account:
+<br>
+email: <b>admin@gmail.com</b>
+<br>
+password: <b>admin123</b>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+<img src="https://github.com/madridista5/madridista5/blob/main/cars_app.gif" alt="logo" width="500" height="auto" />
+  <h1>Cars App</h1>
+</div>
 
-In the project directory, you can run:
+<br />
 
-### `npm start`
+- [About the Project](#star2-about-the-project)
+  * [Description](#star-description)
+  * [Screenshots](#camera-screenshots)
+  * [Tech Stack](#space_invader-tech-stack)
+- [Getting Started](#toolbox-getting-started)
+  * [Prerequisites](#bangbang-prerequisites)
+  * [Run Locally](#running-run-locally)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- About the Project -->
+## :star2: About the Project
 
-### `npm test`
+<!-- Description -->
+### :star: Description
+<p>With the Cars App you will be able to find and buy your perfect car. However, if you want to sell your car, you can create an account, log in and add your ad.</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<!-- Screenshots -->
+### :camera: Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p>1</p>
+<div align="center"> 
+  <img src="" alt="screenshot" />
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
+<p>2</p>
+<div align="center"> 
+  <img src="" alt="screenshot" />
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- TechStack -->
+### :space_invader: Tech Stack
 
-### `npm run eject`
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+  </ul>
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
+    <li><a href="https://expressjs.com">Express.js</a></li>  
+    <li><a href="https://nodejs.org/en/">Node.js</a></li>
+  </ul>
+</details>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.mysql.com">MySQL</a></li>  
+  </ul>
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<!-- Getting Started -->
+## 	:toolbox: Getting Started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- Prerequisites -->
+### :bangbang: Prerequisites
 
-## Learn More
+This project uses npm as package manager
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- Run Locally -->
+### :running: Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/madridista5/cars_app_front
+```
+
+Go to the project directory
+
+```bash
+  cd cars_app_front
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the application
+
+```bash
+  react-app-rewired start
+```
