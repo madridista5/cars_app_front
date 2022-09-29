@@ -1,38 +1,228 @@
-.App {
-  text-align: center;
+.section__padding {
+    padding: 4rem 6rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flex__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app__bg {
+    background: url('./assets/bg6.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.app__wrapper_info {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app__wrapper_img {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.app__wrapper_img-reverse {
+    justify-content: flex-start;
+    margin-right: 2rem;
+}
+
+.app__wrapper_img img {
+    width: 80%;
+    border-radius: 20px;
+}
+
+.custom__button {
+    background-color: var(--color-grey);
+    color: var(--color-blue);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.4s;
+    animation: shakes 3s linear infinite;
+}
+
+.custom__button:hover {
+    background-color: var(--color-red);
+}
+
+.p__cormorant {
+    color: var(--color-white);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    line-height: 29.9px;
+    font-size: 23px;
+}
+
+.p__opensans {
+    color: var(--color-white);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    font-size: 16px;
+}
+
+.headtext__cormorant {
+    color: var(--color-red);
+    font-size: 64px;
+    line-height: 83.2px;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+}
+
+@media screen and (min-width: 2000px) {
+    .custom__button,
+    .p__cormorant {
+        font-size: 37px;
+        line-height: 67px;
+    }
+
+    .p__opensans {
+        font-size: 30px;
+        line-height: 50px;
+    }
+
+    .headtext__cormorant {
+        font-size: 150px;
+        line-height: 210px;
+    }
+
+    .spoon__img {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .app__wrapper {
+        flex-direction: column;
+    }
+
+    .app__wrapper_img {
+        margin: 5rem 0 0 0;
+    }
+
+    .app__wrapper_img-reverse {
+        margin: 0 0 5rem 0;
+    }
+
+    .app__wrapper_img img {
+        width: 100%;
+    }
+
+    .app__wrapper_img-background {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .section__padding {
+        padding: 4rem;
+    }
+
+    .app__wrapper_img-background {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .section__padding {
+        padding: 4rem 2rem;
+    }
+
+    .p__cormorant {
+        font-size: 21px;
+    }
+
+    .p__opensans {
+        font-size: 14px;
+    }
+
+    .app__wrapper_img-background {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .p__opensans {
+        font-size: 12px;
+    }
+
+    .p__cormorant {
+        font-size: 19px;
+    }
+
+    .headtext__cormorant {
+        font-size: 45px;
+        line-height: 70px;
+    }
+
+    .app__wrapper_img-background {
+        height: 200px;
+    }
+}
+
+@keyframes shakes {
+    0% {
+        transform: translateX(0) rotateX(0deg)
+    }
+    90% {
+        transform: translateX(0) rotateX(0deg)
+    }
+    91% {
+        transform: translateX(15px) rotateX(-10deg)
+    }
+    92% {
+        transform: translateX(-15px) rotateX(10deg)
+    }
+    93% {
+        transform: translateX(15px) rotateX(-10deg)
+    }
+    94% {
+        transform: translateX(-15px) rotateX(10deg)
+    }
+    95% {
+        transform: translateX(15px) rotateX(-10deg)
+    }
+    96% {
+        transform: translateX(-15px) rotateX(10deg)
+    }
+    97% {
+        transform: translateX(15px) rotateX(-10deg)
+    }
+    98% {
+        transform: translateX(-15px) rotateX(10deg)
+    }
+    99% {
+        transform: translateX(15px) rotateX(-10deg)
+    }
+    100% {
+        transform: translateX(0) rotateX(0deg)
+    }
 }
