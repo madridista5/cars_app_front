@@ -14,6 +14,7 @@ import {CarsListContext} from './context/carsList.context';
 import { AddCarForm } from './pages/AddCarForm/AddCarForm';
 import {UsersCarsList} from "./pages/UsersCarsList/UsersCarsList";
 import {AddImageForm} from "./pages/AddImageForm/AddImageForm";
+import {Admin} from "./pages/Admin/Admin";
 
 import './App.css';
 
@@ -61,6 +62,7 @@ export const App = () => {
                         <Route path="/addCar" element={<AddCarForm/>}/>
                         <Route path="/usersCarsList" element={<UsersCarsList/>}/>
                         <Route path="/add/image" element={<AddImageForm/>}/>
+                        <Route path="/admin" element={<Admin/>}/>
                     </Routes>
                 </BrowserRouter>
             </CarsListContext.Provider>

@@ -19,6 +19,9 @@ export const NavbarHome = () => {
                 <li className="p__opensans"><a href="#home">Home</a></li>
                 <li className="p__opensans"><a href="#gallery">Galeria</a></li>
                 <li className="p__opensans"><a href="#awards">Nagrody</a></li>
+                {(userData.id && userData.role) === 'ADMIN' && (
+                    <li className="p__opensans"><Link to="/admin">Admin</Link></li>
+                )}
             </ul>
             <div className="app__navbar-login">
                 {userData.id !== ''
@@ -39,6 +42,9 @@ export const NavbarHome = () => {
                             <li className="p__opensans"><a href="#home">Home</a></li>
                             <li className="p__opensans"><a href="#awards">Nagrody</a></li>
                             <li className="p__opensans"><a href="#gallery">Galeria</a></li>
+                            {(userData.id && userData.role) === 'ADMIN' && (
+                                <li className="p__opensans"><Link to="/admin">Admin</Link></li>
+                            )}
 
                             {userData.id !== ''
                                 ? <li className="p__opensans"><Link to="/signOut" onClick={() => userData.id = ''}>Wyloguj</Link></li>

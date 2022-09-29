@@ -22,6 +22,9 @@ export const NavbarRoutes = () => {
                     <li className="p__opensans"><Link to="/usersCarsList">Moje ogłoszenia</Link></li>
                 </>
                 }
+                {(userData.id && userData.role) === 'ADMIN' && (
+                    <li className="p__opensans"><Link to="/admin">Admin</Link></li>
+                )}
             </ul>
             <div className="app__navbar-login">
                 {userData.id === ''
@@ -45,6 +48,9 @@ export const NavbarRoutes = () => {
                                 <li className="p__opensans"><Link to="/usersCarsList">Moje ogłoszenia</Link></li>
                             </>
                             }
+                            {(userData.id && userData.role) === 'ADMIN' && (
+                                <li className="p__opensans"><Link to="/admin">Admin</Link></li>
+                            )}
                             { userData.id !== ''
                                 ? <li className="p__opensans"><Link to="/signOut" onClick={() => userData.id = ''}>Wyloguj</Link></li>
                                 : <li className="p__opensans"><Link to="/login">Logowanie /
