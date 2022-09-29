@@ -16,6 +16,7 @@ import {UsersCarsList} from "./pages/UsersCarsList/UsersCarsList";
 import {AddImageForm} from "./pages/AddImageForm/AddImageForm";
 
 import './App.css';
+import {Admin} from "./pages/Admin/Admin";
 
 export const App = () => {
     const [userData, setUserData] = useState({
@@ -61,6 +62,7 @@ export const App = () => {
                         <Route path="/addCar" element={<AddCarForm/>}/>
                         <Route path="/usersCarsList" element={<UsersCarsList/>}/>
                         <Route path="/add/image" element={<AddImageForm/>}/>
+                        <Route path="/admin" element={<Admin/>}/>
                     </Routes>
                 </BrowserRouter>
             </CarsListContext.Provider>
