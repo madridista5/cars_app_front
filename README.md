@@ -48,15 +48,33 @@ password: <b>admin123</b>
 <!-- Screenshots -->
 ### :camera: Screenshots
 
-<p>1</p>
+<p>1. Home page:</p>
 <div align="center"> 
-  <img src="" alt="screenshot" />
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/1.png" alt="screenshot" />
 </div>
 
 <br>
-<p>2</p>
+<p>2. Short video:</p>
 <div align="center"> 
-  <img src="" alt="screenshot" />
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/2.png" alt="screenshot" />
+</div>
+
+<br>
+<p>3. Gallery:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/3.png" alt="screenshot" />
+</div>
+
+<br>
+<p>4. Awards:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/4.png" alt="screenshot" />
+</div>
+
+<br>
+<p>5. Footer:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/5.png" alt="screenshot" />
 </div>
 
 <!-- TechStack -->
