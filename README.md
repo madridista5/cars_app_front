@@ -77,6 +77,54 @@ password: <b>admin123</b>
   <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/5.png" alt="screenshot" />
 </div>
 
+<br>
+<p>6. Cars App:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/6.png" alt="screenshot" />
+</div>
+
+<br>
+<p>7. Car's View:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/7.png" alt="screenshot" />
+</div>
+
+<br>
+<p>8. Car's gallery:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/8.png" alt="screenshot" />
+</div>
+
+<br>
+<p>9. Login form:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/9.png" alt="screenshot" />
+</div>
+
+<br>
+<p>10. Ad form:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/10.png" alt="screenshot" />
+</div>
+
+<br>
+<p>11. User's ads:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/11.png" alt="screenshot" />
+</div>
+
+<br>
+<p>12. User's watch ads:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/12.png" alt="screenshot" />
+</div>
+
+<br>
+<p>13. Admin:</p>
+<div align="center"> 
+  <img src="https://github.com/madridista5/cars_app_front/blob/main/screenshots/13.png" alt="screenshot" />
+</div>
+
 <!-- TechStack -->
 ### :space_invader: Tech Stack
 
