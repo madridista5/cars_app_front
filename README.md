@@ -3,7 +3,7 @@
 https://carsapp.tlossy.networkmanager.pl
 <br>
 <br>
-You can create your own account using your email adress, log in and test how it works 🙂
+You can create your own account using your email adress, log in and test how it works 🙂. There are two validations. Email must includes @ and passoword length cannot be shorter then 8 signs.
 <br>
 <br>
 If you don't want to create an account you can use this test USER account:
@@ -42,8 +42,21 @@ password: <b>admin123</b>
 
 <!-- Description -->
 ### :star: Description
-<p>With the Cars App you will be able to find and buy your perfect car. However, if you want to sell your car, you can create an account, log in and add your ad.</p>
+<p>With the Cars App you will be able to find and buy your perfect car. However, if you want to sell your car, you can create an account, log in and add your ad. There are two validations. Email must includes @ and passoword length cannot be shorter then 8 signs. If you are Admin you can also delete each ad. The application looks good on desktop and on mobile as well.</p>
 
+<br>
+If you don't want to create an account you can use this test USER account:
+<br>
+email: <b>user@gmail.com</b>
+<br>
+password: <b>user1234</b></p>
+<br>
+You can also use this test ADMIN account:
+<br>
+email: <b>admin@gmail.com</b>
+<br>
+password: <b>admin123</b>
+<br>
 
 <!-- Screenshots -->
 ### :camera: Screenshots
